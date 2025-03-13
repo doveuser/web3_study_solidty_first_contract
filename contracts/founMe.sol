@@ -11,9 +11,9 @@ contract foundMe {
     mapping(address => uint) founderTomount; //投资人记录
     address[] public founders; //投资人
     uint256 public targetMoney; //目标资金
-    address private owner; 
+    address public owner; 
     uint256 private min_value = 100; //单次捐款最小金额
-    uint256 lockTime;  //锁定时间 单位秒
+    uint256 public lockTime;  //锁定时间 单位秒
     uint256 startTime; //开始时间
     bool foundStatus = false; //提款状态
      

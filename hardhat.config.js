@@ -13,12 +13,15 @@ module.exports = {
     ],
   },
   networks: {
-    defaultNetwork: "hardhat",
+    // defaultNetwork: "hardhat",
     localhost: {
-      url: "http://127.0.0.1:8548",
+      url: "http://127.0.0.1:7545",
+      accounts: [
+        "0x3088d1e71571b66bfa3a2deed4f02a404b9c143437b5072d3b63284a62212aa4",
+      ],
     },
-    sepolia: {
-      url: "",
+    lineaSepolia: {
+      url: "https://rpc.sepolia.linea.build/",
       accounts: [
         //账户私钥
         "88dbd1a88ba8c9a078e31f06145f10c8b737a977060327c0e6360e706e659ed5",
