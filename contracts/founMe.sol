@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.26;
- 
+ import "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 contract foundMe {
     //众筹合约
     // 1. 创建一个收款函数
@@ -16,11 +16,12 @@ contract foundMe {
     uint256 public lockTime;  //锁定时间 单位秒
     uint256 startTime; //开始时间
     bool foundStatus = false; //提款状态
-     
-    constructor(uint256 _lockTime) {
+    AggregatorV3Interface private priceFeed; 
+    constructor(uint256 _lockTime,address _priceFeed) {
         owner = msg.sender;
         lockTime = _lockTime;
         startTime = block.timestamp;
+        priceFeed=AggregatorV3Interface(_priceFeed);
     }
 
     function found() external payable {
@@ -39,6 +40,10 @@ contract foundMe {
             value: address(this).balance
         }("");
         require(success, "transaction is failed");
+        for(uint256 i=0;i<founders.length;i++){
+            founderTomount[founders[i]]=0;
+        }
+
         foundStatus = true;
     }
 

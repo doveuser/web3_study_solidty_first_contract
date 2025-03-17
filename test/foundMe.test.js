@@ -7,5 +7,5 @@ describe("test foundMe contract", async () => {
     await foundMe.waitForDeployment();
     const [firstAccount] = await ethers.getSigners();
     assert.equal(await foundMe.owner(), firstAccount.address);
-  });
+  it("test locktime is")
 });
