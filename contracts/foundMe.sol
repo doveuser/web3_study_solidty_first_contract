@@ -14,7 +14,7 @@ contract foundMe {
     address public owner; 
     uint256 private min_value = 50*1e18; //单次捐款最小金额 eth
     uint256 public lockTime;  //锁定时间 单位秒
-    uint256 startTime; //开始时间
+    uint256 public startTime; //开始时间
     bool foundStatus = false; //提款状态
     AggregatorV3Interface private priceFeed=AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306); //
   

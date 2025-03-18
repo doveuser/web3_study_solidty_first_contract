@@ -32,10 +32,10 @@ module.exports = {
     },
   },
   namedAccounts: {
-    firstAccounts: {
+    firstAccount: {
       default: 0,
     },
-    secAccounts: {
+    SecAccount: {
       default: 1,
     },
   },
