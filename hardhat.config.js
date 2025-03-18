@@ -1,5 +1,8 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
+require("hardhat-deploy");
+const LineaSepolia_PRC_URL = process.env.LineaSepolia_PRC_URL;
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
@@ -17,15 +20,23 @@ module.exports = {
     localhost: {
       url: "http://127.0.0.1:7545", //部署本地ganache
       accounts: [
-        "0x3088d1e71571b66bfa3a2deed4f02a404b9c143437b5072d3b63284a62212aa4",
+        "0x4f58567c2f92a9f3ec028b5639be02f9eddd91350e13856eff4d8c7c2aa2e44a",
       ],
     },
     lineaSepolia: {
-      url: "https://rpc.sepolia.linea.build/",
+      url: LineaSepolia_PRC_URL,
       accounts: [
         //账户私钥
-        "88dbd1a88ba8c9a078e31f06145f10c8b737a977060327c0e6360e706e659ed5",
+        PRIVATE_KEY,
       ],
+    },
+  },
+  namedAccounts: {
+    firstAccounts: {
+      default: 0,
+    },
+    secAccounts: {
+      default: 1,
     },
   },
 };
