@@ -8,7 +8,7 @@ contract foundMe {
     // 3. 在锁定期内，达到目标值，生产商可以提款
     // 4. 在锁定期内，没有达到目标值，投资人在锁定期以后退款
 
-    mapping(address => uint) founderTomount; //投资人记录
+    mapping(address => uint) public founderTomount; //投资人记录
     address[] private founders; //投资人
     uint256 private targetMoney=50*1e18; //目标资金  100eth
     address public owner; 
@@ -97,5 +97,8 @@ contract foundMe {
         uint256 price=getPrice();
         uint256 ethPrice=(amount*price)/1e18;
         return ethPrice;
+    }
+    function getBalance() public view returns(uint256){
+        return address(this).balance;
     }
 }

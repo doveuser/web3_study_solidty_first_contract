@@ -20,7 +20,7 @@ module.exports = {
     localhost: {
       url: "http://127.0.0.1:7545", //部署本地ganache
       accounts: [
-        "0x4f58567c2f92a9f3ec028b5639be02f9eddd91350e13856eff4d8c7c2aa2e44a",
+        "0xdf8a7654c41fafe6aad6c19a4a40cf8f1b9ab20842c6556998d4acf181dd116f",
       ],
     },
     lineaSepolia: {
