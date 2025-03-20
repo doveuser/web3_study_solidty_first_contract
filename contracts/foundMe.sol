@@ -10,14 +10,14 @@ contract foundMe {
 
     mapping(address => uint) public founderTomount; //投资人记录
     address[] private founders; //投资人
-    uint256 private targetMoney=50*1e18; //目标资金  100eth
+    uint256 private targetMoney=60*1e18; //目标资金  100eth
     address public owner; 
     uint256 private min_value = 50*1e18; //单次捐款最小金额 eth
     uint256 public lockTime;  //锁定时间 单位秒
     uint256 public startTime; //开始时间
     bool foundStatus = false; //提款状态
     AggregatorV3Interface private priceFeed=AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306); //
-  
+    event txSucces(address,uint256);
     constructor(uint256 _lockTime) {
         owner = msg.sender;
         lockTime = _lockTime;
@@ -56,6 +56,9 @@ contract foundMe {
 
     function reFound() external timeOver {
         //退款
+        require(address(this).balance < targetMoney, "target is reached");
+        require(founderTomount[msg.sender]>0,"you have no balance");
+        uint256  currentBalance=founderTomount[msg.sender];
         (bool success, ) = payable(msg.sender).call{
             value: founderTomount[msg.sender]
         }("");
@@ -63,12 +66,12 @@ contract foundMe {
         founderTomount[msg.sender] = 0;
         for(uint256 i=0;i<founders.length;i++){
             if(founders[i]==msg.sender){
-                    founders[i]=founders[founders.length];
+                    founders[i]=founders[founders.length-1];
+                    founders.pop();
                     break;
             }
         }
-        founders.pop();
-        
+        emit txSucces(msg.sender,currentBalance);
     }
 
     modifier onlyOnwer() {

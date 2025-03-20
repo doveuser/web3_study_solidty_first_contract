@@ -6,7 +6,7 @@ module.exports = async ({ deployments, getNamedAccounts }) => {
   // console.log("firstAccounts", firstAccounts);
   await deploy("foundMe", {
     from: firstAccount,
-    args: [180], //构造函数参数
+    args: [36000], //构造函数参数
     log: true,
   });
 };
