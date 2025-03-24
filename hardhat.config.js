@@ -1,6 +1,8 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 require("hardhat-deploy");
+require("hardhat-gas-reporter");
+require("solidity-coverage");
 const LineaSepolia_PRC_URL = process.env.LineaSepolia_PRC_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 /** @type import('hardhat/config').HardhatUserConfig */
@@ -41,5 +43,10 @@ module.exports = {
     SecAccount: {
       default: 1,
     },
+  },
+  gasReporter: {
+    enable: true,
+    outputFile: "gas-reporter.txt",
+    noColors: true,
   },
 };
