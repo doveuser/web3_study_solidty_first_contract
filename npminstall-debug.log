@@ -3,9 +3,9 @@
   registry: 'https://registry.npmmirror.com',
   pkgs: [
     {
-      name: '@chainlink/contracts',
-      version: 'latest',
-      type: 'tag',
+      name: '@nomicfoundation/hardhat-verify',
+      version: '2.12.0',
+      type: 'version',
       alias: undefined,
       arg: [Result]
     }
@@ -15,7 +15,7 @@
   cacheDir: 'C:\\Users\\admin\\.npminstall_tarball',
   env: {
     npm_config_registry: 'https://registry.npmmirror.com',
-    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=C:\\\\Users\\\\admin\\\\.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","--D","@chainlink/contracts"],"original":["--fix-bug-versions","--china","--userconfig=C:\\\\Users\\\\admin\\\\.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","--D","@chainlink/contracts"]}',
+    npm_config_argv: '{"remain":[],"cooked":["--fix-bug-versions","--china","--userconfig=C:\\\\Users\\\\admin\\\\.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","@nomicfoundation/hardhat-verify@2.12.0","-D"],"original":["--fix-bug-versions","--china","--userconfig=C:\\\\Users\\\\admin\\\\.cnpmrc","--disturl=https://cdn.npmmirror.com/binaries/node","--registry=https://registry.npmmirror.com","@nomicfoundation/hardhat-verify@2.12.0","-D"]}',
     npm_config_user_agent: 'npminstall/7.12.0 npm/? node/v22.12.0 win32 x64',
     npm_config_cache: 'C:\\Users\\admin\\.npminstall_tarball',
     NODE: 'C:\\Program Files\\nodejs\\node.exe',
@@ -50,6 +50,7 @@
     npm_config_sharp_binary_host: 'https://cdn.npmmirror.com/binaries/sharp',
     npm_config_sharp_libvips_binary_host: 'https://cdn.npmmirror.com/binaries/sharp-libvips',
     npm_config_robotjs_binary_host: 'https://cdn.npmmirror.com/binaries/robotjs',
+    npm_config_gl_binary_host: 'https://cdn.npmmirror.com/binaries/gl',
     npm_rootpath: 'D:\\code\\web3\\hardhat-found-me-contract-exmaple',
     INIT_CWD: 'D:\\code\\web3\\hardhat-found-me-contract-exmaple'
   },
@@ -80,7 +81,8 @@
       npm_config_keytar_binary_host: 'https://cdn.npmmirror.com/binaries/keytar',
       npm_config_sharp_binary_host: 'https://cdn.npmmirror.com/binaries/sharp',
       npm_config_sharp_libvips_binary_host: 'https://cdn.npmmirror.com/binaries/sharp-libvips',
-      npm_config_robotjs_binary_host: 'https://cdn.npmmirror.com/binaries/robotjs'
+      npm_config_robotjs_binary_host: 'https://cdn.npmmirror.com/binaries/robotjs',
+      npm_config_gl_binary_host: 'https://cdn.npmmirror.com/binaries/gl'
     },
     '@ali/s2': { host: 'https://cdn.npmmirror.com/binaries/looksgood-s2' },
     sharp: { replaceHostFiles: [Array], replaceHostMap: [Object] },

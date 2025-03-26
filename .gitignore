@@ -18,3 +18,5 @@ ignition/deployments/chain-31337
 
 # gas-reporter file
 gas-reporter.txt
+
+deployments

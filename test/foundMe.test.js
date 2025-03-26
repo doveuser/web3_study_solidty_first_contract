@@ -10,7 +10,7 @@ const { any } = require("hardhat/internal/core/params/argumentTypes");
 describe("test foundMe contract", async () => {
   let foundMe, firstAccount, foundMeDeployment, secondAccount;
   beforeEach(async () => {
-    await deployments.fixture(["all"]); //获取标记为all的合约并部署  就是含有 module.exports.tags=【"all"】
+    await deployments.fixture(["all"]); //获取标记为all的合约并部署  就是deploy部署脚本中含有 module.exports.tags=【"all"】
     firstAccount = (await getNamedAccounts()).firstAccount;
     secondAccount = (await getNamedAccounts()).SecAccount;
     foundMeDeployment = await deployments.get("foundMe");

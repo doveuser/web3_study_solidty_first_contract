@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npx hardhat test test/foundMe.test.js ",
-    "deploy-ls": "npx hardhat run deploy/deployFoundMe.js --network lineaSepolia",
-    "deploy-local": "npx hardhat run deploy/deployFoundMe.js --network localhost"
+    "deploy-ls": "npx hardhat deploy  --network lineaSepolia",
+    "deploy-local": "npx hardhat deploy  --network localhost"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +13,7 @@
   "devDependencies": {
     "@chainlink/contracts": "^1.3.0",
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.13",
     "dotenv": "^16.4.7",
     "hardhat": "^2.22.19",
     "hardhat-deploy": "^1.0.1",

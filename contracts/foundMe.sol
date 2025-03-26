@@ -66,8 +66,11 @@ contract foundMe {
         if(!success){
             revert TXFailed();
         }
-        for(uint256 i=0;i<founders.length;i++){//账户归零
-            founderTomount[founders[i]]=0;
+        address[] memory arr=founders;
+        uint256  foundersLen=arr.length;
+        for(uint256 i=0;i<foundersLen;i++){//账户归零
+            address each=arr[i];
+            founderTomount[each]=0;
         }
         founders=new address[](0);
         foundStatus = true;
@@ -85,20 +88,23 @@ contract foundMe {
         if(address(this).balance >= targetMoney){
             revert reFoundFailWithReach();
         }
-        if(founderTomount[msg.sender]<=0){
+         uint256  currentBalance=founderTomount[msg.sender];
+        if(currentBalance<=0){
             revert reFoundWithNoBalance();
         }
-        uint256  currentBalance=founderTomount[msg.sender];
+       
         (bool success, ) = payable(msg.sender).call{
-            value: founderTomount[msg.sender]
+            value: currentBalance
         }("");
         // require(success, "transaction is failed");
         if(!success){
             revert TXFailed();
         }
         founderTomount[msg.sender] = 0;
-        for(uint256 i=0;i<founders.length;i++){
-            if(founders[i]==msg.sender){
+        uint256 foundersLen=founders.length;
+        for(uint256 i=0;i<foundersLen;i++){
+            address eachFounder=founders[i];
+            if(eachFounder==msg.sender){
                     founders[i]=founders[founders.length-1];
                     founders.pop();
                     break;
@@ -132,7 +138,6 @@ contract foundMe {
     function getPrice() internal pure  returns(uint256){
             // (,int256 price,,,)=priceFeed.latestRoundData(); //1eth与美元的价格比例 1eth : 3000*10*8
             int256 price =3000*10**8;
-
             return uint256(price*1e10); //这里转化为1wei对应的美元价格   10*18 wei :3000*10**18   合约程序中默认都是wei单位
     }
     function getRate(uint256 amount) internal pure  returns(uint256){ //计算传入的eth对应的美元价格 amount单位eth
